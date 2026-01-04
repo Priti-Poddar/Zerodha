@@ -21,7 +21,10 @@ const app = express();
 
 app.use(
   cors({
-    origin: ["http://localhost:3000", "http://localhost:3001"],
+    origin: [
+      "https://zerodha-sv8s.vercel.app/",
+      "https://dashboard-olive-three-53.vercel.app/",
+    ],
     credentials: true,
   })
 );

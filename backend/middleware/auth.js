@@ -1,15 +1,11 @@
-require("dotenv").config();
-
-// middleware.js
-
-// middleware/auth.js
 const jwt = require("jsonwebtoken");
 
 function verifyToken(req, res, next) {
-  const token = req.cookies.token; // Get token from cookies
-  console.log(token);
+  const token = req.cookies?.token;
 
-  if (!token) return res.status(401).json({ error: "Access denied" });
+  if (!token) {
+    return res.status(401).json({ error: "Access denied" });
+  }
 
   try {
     const decoded = jwt.verify(token, process.env.TOKEN_KEY);
